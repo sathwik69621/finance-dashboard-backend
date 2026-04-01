@@ -98,6 +98,30 @@ public class FinancialService {
 
         return map;
     }
+    // update an exixting record
+    public RecordResponse update(Long id, RecordRequest request) {
+
+    FinancialRecord record = repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Record not found with id: " + id));
+
+    record.setAmount(request.getAmount());
+    record.setType(request.getType());
+    record.setCategory(request.getCategory());
+    record.setDate(request.getDate());
+    record.setNotes(request.getNotes());
+
+    FinancialRecord updated = repository.save(record);
+
+    RecordResponse response = new RecordResponse();
+    response.setId(updated.getId());
+    response.setAmount(updated.getAmount());
+    response.setType(updated.getType());
+    response.setCategory(updated.getCategory());
+    response.setDate(updated.getDate());
+    response.setNotes(updated.getNotes());
+
+    return response;
+}
 // for deleting a record
     public void delete(Long id) {
 
