@@ -44,7 +44,15 @@ public class FinancialController {
     public ResponseEntity<Page<RecordResponse>> getAllWithPagination(Pageable pageable) {
         return ResponseEntity.ok(service.getAllWithPagination(pageable));
     }
+   @PutMapping("/{id}")
+public ResponseEntity<ApiResponse<RecordResponse>> update(
+        @PathVariable Long id,
+        @RequestBody @Valid RecordRequest request) {
 
+    return ResponseEntity.ok(
+        new ApiResponse<>("Record updated successfully", service.update(id, request))
+    );
+}
     // DELETE
   @DeleteMapping("/{id}")
 public ResponseEntity<ApiResponse<String>> delete(@PathVariable Long id) {
