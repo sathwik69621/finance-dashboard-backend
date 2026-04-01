@@ -4,9 +4,7 @@
 This project is a production-style backend system built using Java and Spring Boot for managing financial records. It allows users to create, view, filter, and analyze income/expense data with secure role-based access.
 
 This project demonstrates real-world backend engineering practices, making it highly suitable for interviews.
-
 ---
-
 # 🧰 Tech Stack
 
 Category	      Technology
@@ -17,7 +15,6 @@ ORM	            Spring Data JPA (Hibernate)
 Security	      Spring Security (Basic Auth)
 Build Tool	      Maven
 API Testing 	Postman
-
 ---
 # 🏗️ Architecture
 
@@ -33,11 +30,8 @@ The Service layer contains the core business logic and processes the data based 
 It interacts with the Repository layer, which uses Spring Data JPA to communicate with the database for CRUD operations.
 I implemented global exception handling using @RestControllerAdvice to provide consistent error responses across the application.
 For security, I used Spring Security with role-based access control, defining roles like ADMIN, ANALYST, and VIEWER. Currently, authentication is handled using Basic Auth with in-memory users, and in a production scenario, I would use encrypted passwords with BCrypt and JWT-based authentication.”
-
 ---
-
 # 🧠 Breakdown 
-
 Concept	            Correct Meaning
 Controller   	      Handles HTTP requests
 DTO	                  Transfers data safely
@@ -48,7 +42,6 @@ Security	            Role-based + Basic Auth
 Passwords	            Plain ({noop}), not encrypted
 
 ---
-
 # Api testing
 AUTH (FOR MOST APIs)
 👉 Postman → Authorization → Basic Auth
@@ -146,5 +139,15 @@ DELETE /api/records/1
 
 ❌ POST → 403
 ✔ SUMMARY → allowed
-
 ---
+
+## 🎯 FINAL ROLE PERMISSIONS
+
+API	   ADMIN	 ANALYST  	VIEWER
+POST	  ✅     	✅	       ❌
+PUT     ✅	      ✅	       ❌
+DELETE	✅	      ❌ (opt)	 ❌
+GET all	✅	      ✅        ✅
+FILTER	✅     	✅	       ✅
+PAGINATION	✅  	✅        ✅
+SUMMARY	✅	      ✅      	 ✅
