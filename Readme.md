@@ -144,10 +144,10 @@ DELETE /api/records/1
 ## 🎯 FINAL ROLE PERMISSIONS
 
 API	   ADMIN	 ANALYST  	VIEWER
-POST	  ✅     	✅	       ❌
+POST	  ✅      	✅	       ❌
 PUT     ✅	      ✅	       ❌
 DELETE	✅	      ❌ (opt)	 ❌
 GET all	✅	      ✅        ✅
-FILTER	✅     	✅	       ✅
+FILTER	✅      	✅	       ✅
 PAGINATION	✅  	✅        ✅
 SUMMARY	✅	      ✅      	 ✅
