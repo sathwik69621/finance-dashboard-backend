@@ -15,9 +15,17 @@ public class SecurityConfig {
 
         http
             .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-    .requestMatchers("/api/records/summary").permitAll()  // FIRST
-    .requestMatchers("/api/records/**").hasAnyRole("ADMIN", "ANALYST")
+           .authorizeHttpRequests(auth -> auth
+    .requestMatchers("/api/records/summary").permitAll()
+
+    // VIEW ACCESS
+    .requestMatchers("/api/records", "/api/records/filter", "/api/records/page")
+    .hasAnyRole("ADMIN", "ANALYST", "VIEWER")
+
+    // WRITE ACCESS
+    .requestMatchers("/api/records/**")
+    .hasAnyRole("ADMIN", "ANALYST")
+
     .anyRequest().authenticated()
 )
           .httpBasic(Customizer.withDefaults());

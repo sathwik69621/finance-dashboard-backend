@@ -16,7 +16,17 @@ public class RecordRequest {
     @NotNull
     private RecordType type;
 
-    public Double getAmount() {
+   
+    @NotBlank
+    private String category;
+
+    @NotNull
+    private LocalDate date;
+
+    private String notes;
+
+
+     public Double getAmount() {
         return amount;
     }
 
@@ -56,12 +66,5 @@ public class RecordRequest {
         this.notes = notes;
     }
 
-    @NotBlank
-    private String category;
-
-    @NotNull
-    private LocalDate date;
-
-    private String notes;
     
 }

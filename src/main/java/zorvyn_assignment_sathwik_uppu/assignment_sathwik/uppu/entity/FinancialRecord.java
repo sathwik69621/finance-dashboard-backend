@@ -1,7 +1,7 @@
 package zorvyn_assignment_sathwik_uppu.assignment_sathwik.uppu.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+// import lombok.*;
 
 import java.time.LocalDate;
 

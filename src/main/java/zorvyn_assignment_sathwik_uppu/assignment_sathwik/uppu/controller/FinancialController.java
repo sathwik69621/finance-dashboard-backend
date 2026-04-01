@@ -10,6 +10,7 @@ import zorvyn_assignment_sathwik_uppu.assignment_sathwik.uppu.dto.*;
 import zorvyn_assignment_sathwik_uppu.assignment_sathwik.uppu.service.FinancialService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/records")
@@ -52,6 +53,10 @@ public ResponseEntity<ApiResponse<RecordResponse>> update(
     return ResponseEntity.ok(
         new ApiResponse<>("Record updated successfully", service.update(id, request))
     );
+}
+@GetMapping("/summary")
+public ResponseEntity<Map<String, Double>> getSummary() {
+    return ResponseEntity.ok(service.getSummary());
 }
     // DELETE
   @DeleteMapping("/{id}")
