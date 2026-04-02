@@ -145,6 +145,9 @@ DELETE /api/records/1
 
 ❌ POST → 403
 ✔ SUMMARY → allowed
+
+Documentation : https://documenter.getpostman.com/view/53684722/2sBXiokUjp
+
 ---
 
 ## 🎯 FINAL ROLE PERMISSIONS
